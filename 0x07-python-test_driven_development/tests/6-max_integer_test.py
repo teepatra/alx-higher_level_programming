@@ -1,4 +1,5 @@
-tMaxInteger testing max integer class
+"""
+TestMaxInteger testing max integer class
 """
 import unittest
 
