@@ -1,18 +1,11 @@
 #!/usr/bin/python3
 """
-Send a POST request with a letter a s a parameter
+use the Github API to retrieve my github account id
 """
 import requests
-from sys import argv
-
-if __name__ == '__main__':
-    url: str = argv[1]
-
-    req = requests.get(url)
-    status: int = req.status_code
-    body = req.text
-
-    if status >= 400:
-        print(f"Error code: {status}")
-    else:
-        print(body)
+import sys
+from requests.auth import HTTPBasicAuth
+if __name__ == "__main__":
+    url = 'https://api.github.com/user'
+    r = requests.get(url, auth=HTTPBasicAuth(sys.argv[1], sys.argv[2]))
+    print(r.json().get('id'))
